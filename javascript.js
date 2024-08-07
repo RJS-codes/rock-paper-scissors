@@ -2,21 +2,62 @@
 function getComputerChoice() {
     
     let x = Math.floor(Math.random() * 3) + 1;
-    const cChose = "Computer: "
+    const cChose = 'Computer: '
     if(x === 1) {
-        result = cChose +"rock"
+        return 'rock'
     } else if (x === 2) {
-        result = cChose +"paper"
+        return 'paper'
     } else {
-        result = cChose +"scissors"
+        return 'scissors'
     }
-    return result
 }
-console.log(getComputerChoice())
 //Human Choice
 function getHumanChoice() {
-    let askHuman = prompt("Rock Paper or Scissors?");
-    let hChoice = "You Chose: " + askHuman;
-    return hChoice
+    let askHuman = prompt('Rock Paper or Scissors?');
+    return askHuman
 }
-console.log(getHumanChoice())
+//Score
+let humanScore = 0;
+let computerScore = 0;
+//Play single round
+function playRound(humanChoice, computerChoice) {
+    const w = 'You Won! :)'
+    const l = 'You lost :('
+    const d = "It's a draw"
+    if (humanChoice === computerChoice) {
+        return d
+    } else if(humanChoice == 'rock') {
+        if (computerChoice == 'scissors') {
+            ++humanScore
+            return w; 
+        }else  { //paper
+            ++computerScore
+            return l;
+        }
+    } else if(humanChoice == 'paper') {
+        if (computerChoice == 'rock') {
+            ++humanScore
+            return w;
+        }else { //scissor
+            ++computerScore
+            return l;
+        }
+    } else if(humanChoice == 'scissor') {
+        if(computerChoice == 'paper') {
+            ++humanScore
+            return w;
+        }else { //rock
+            ++computerScore
+            return l;
+        }
+    }
+}
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+const result = playRound(humanChoice, computerChoice);
+
+console.log(`You chose: ${humanChoice}`);
+console.log(`Computer chose: ${computerChoice}`);
+console.log(result);
+console.log(`Your Score: ${humanScore}`);
+console.log(`Computer Score: ${computerScore}`);
