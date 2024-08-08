@@ -17,8 +17,12 @@ for (let i = 1; i < 5; i++) {
     }
     //Human Choice
     function getHumanChoice() {
-        let askHuman = prompt('Rock Paper or Scissors?');
-        return askHuman
+        let askHuman = prompt('Rock Paper or Scissors?').toLowerCase();
+        const validChoices = ['rock', 'paper', 'scissors'];
+            while (!validChoices.includes(askHuman)) {
+                askHuman = prompt('Invalid choice. Please choose Rock, Paper, or Scissors.').toLowerCase();
+            }
+            return askHuman;
     }
 
     //Play single round
@@ -45,7 +49,7 @@ for (let i = 1; i < 5; i++) {
                 ++computerScore
                 return l;
             }
-        } else if(humanChoice == 'scissor') {
+        } else if(humanChoice == 'scissors') {
             if(computerChoice == 'paper') {
                 ++humanScore
                 return w;
@@ -54,11 +58,7 @@ for (let i = 1; i < 5; i++) {
                 return l;
             }
         }
-    if( d ) {
-        continue
-    }   
     }
-    
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
     const result = playRound(humanChoice, computerChoice);
