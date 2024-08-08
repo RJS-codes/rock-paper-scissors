@@ -20,9 +20,10 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 //Play single round
+
 function playRound(humanChoice, computerChoice) {
-    const w = 'You Won! :)'
-    const l = 'You lost :('
+    const w = 'You Won!'
+    const l = 'You lost'
     const d = "It's a draw"
     if (humanChoice === computerChoice) {
         return d
@@ -61,3 +62,14 @@ console.log(`Computer chose: ${computerChoice}`);
 console.log(result);
 console.log(`Your Score: ${humanScore}`);
 console.log(`Computer Score: ${computerScore}`);
+
+for (let i = 1; i < 5; i++) {
+    getComputerChoice();
+    getHumanChoice();
+    playRound(humanChoice, computerChoice);
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerChoice}`);
+    console.log(result);
+    console.log(`Your Score: ${humanScore}`);
+    console.log(`Computer Score: ${computerScore}`);
+}
