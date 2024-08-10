@@ -1,21 +1,13 @@
-    //Score
     let humanScore = 0;
     let computerScore = 0;
-for (let i = 1; i < 5; i++) {
-   //Computer choice
+
+for (let i = 1; i <= 5; i++) {
     function getComputerChoice() {
-        
-        let x = Math.floor(Math.random() * 3) + 1;
-        const cChose = 'Computer: '
-        if(x === 1) {
-            return 'rock'
-        } else if (x === 2) {
-            return 'paper'
-        } else {
-            return 'scissors'
-        }
+        const weaponChoices = ["rock", "paper" ,"scissors"]
+        let x = Math.floor(Math.random() * weaponChoices.length);
+        return weaponChoices[x]
     }
-    //Human Choice
+
     function getHumanChoice() {
         let askHuman = prompt('Rock Paper or Scissors?').toLowerCase();
         const validChoices = ['rock', 'paper', 'scissors'];
@@ -24,8 +16,6 @@ for (let i = 1; i < 5; i++) {
             }
             return askHuman;
     }
-
-    //Play single round
 
     function playRound(humanChoice, computerChoice) {
         const w = 'You Won!'
